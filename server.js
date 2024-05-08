@@ -15,15 +15,15 @@ const path = require('path');
 require('dotenv').config();
 //console.log(process.env.JWT_SECRET)
 // console.log(process.env);
-const corsOptions = {
-  origin: ['http://localhost:3000','http://127.0.0.1:3001','http://localhost:3001','http://159.89.199.199:3001','http://159.89.199.199:3000'], // Replace with the origin of your React app
-  credentials: true,
-};
+// const corsOptions = {
+//   origin: ['http://localhost:3000','http://138.197.11.76:3001','http://127.0.0.1:3001','http://localhost:3001','http://159.89.199.199:3001','http://159.89.199.199:3000'], // Replace with the origin of your React app
+//   credentials: true,
+// };
 app.use((req,res,next)=>{
   console.log(req.url);
   next();
 })
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(compression());
 //app.use(cors());
 app.use(bodyParser.json());
@@ -153,7 +153,7 @@ app.post('/expenditure', authenticateToken, async (req, res) => {
   }
 });
 
-app.get('/montlyExpenses', async (req, res) => {
+app.get('/monthlyExpenses', async (req, res) => {
   try {
     const userId = req.header('X-User-ID');
 
