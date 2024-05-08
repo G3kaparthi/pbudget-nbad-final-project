@@ -11,7 +11,7 @@ const SignUp = ({ onSignUp }) => {
     try {
      
       // Call your backend API to authenticate the user
-      const response = await fetch('/signup', {
+      const response = await fetch('http://138.197.11.76:3001/signup', {
         method: 'POST',
         body: JSON.stringify({ email, password }),
         headers: { 'Content-Type': 'application/json' },
